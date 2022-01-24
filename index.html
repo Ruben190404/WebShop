@@ -29,6 +29,13 @@
 
             <div class="collapse navbar-collapse" id="navmenu">
                 <ul class="navbar-nav ms-auto">
+                    <li id="google_translate_element"></li>
+                    <script type="text/javascript">
+                        function googleTranslateElementInit() {
+                            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+                        }
+                    </script>
+                    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
                     <li class="nav-item">
                         <a href="index.html" class="nav-link">Informatie</a>
                     </li>
@@ -37,6 +44,9 @@
                     </li>
                     <li class="nav-item">
                         <a href="workshop.html" class="nav-link">Workshop's</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="login.php" class="nav-link">login</a>
                     </li>
                 </ul>
             </div>
@@ -56,8 +66,8 @@
                         laborum earum quae molestias odio vel porro autem nisi aliquam recusandae, sint blanditiis minus
                         quia quibusdam esse? Esse iusto distinctio commodi voluptatem.
                     </p>
-                    <button class="btn btn-danger btn-lg text-dark" data-bs-toggle="modal" data-bs-target="#klaas">Maak
-                        een Account</button>
+                    <button class="btn btn-danger btn-lg "> <a href="register.php" class="text-dark noline">Maak
+                        een Account</a></button>
                 </div>
                 <img class="img-fluid w-50 d-none d-sm-block ps-3" src="images/WOK&rollBanner(1000x500px).svg" alt="">
             </div>
