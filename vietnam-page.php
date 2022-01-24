@@ -97,7 +97,7 @@ $productDB = new Product();
                                     $total += ($product['price'] * $amount);
                                 }
                             }
-                            echo  '&euro;&nbsp;' . number_format($total, 2, ',', '.') . ' <br>';
+                            echo '&euro;&nbsp;' . number_format($total, 2, ',', '.') . ' <br>';
                             ?></span>
                     </div>
                 </div>
@@ -118,7 +118,8 @@ $productDB = new Product();
                     }
                     ?>
                 </ul>
-                <a href="checkout.php" class="button">Checkout</a>
+
+                <a href="#" class="button">Checkout</a>
             </div>
 
         </div>
@@ -134,7 +135,7 @@ $productDB = new Product();
                     <img src="images/indian1.png" class="img-fluid rounded-pill" alt="">
                 </div>
                 <div class="col-md ms-3">
-                    <h2>De Indiaase Keuken</h2>
+                    <h2>De Vietnamese Keuken</h2>
                     <p class="lead">
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, voluptates alias cupiditate doloribus fuga exercitationem.
                     </p>
@@ -152,7 +153,7 @@ $productDB = new Product();
         <div class="container">
             <div class="row text-center g-3">
                 <?php
-                $products = $productDB->getAllByCategory('indian');
+                $products = $productDB->getAllByCategory('vietnam');
                 foreach ($products as $product) {
                     ?>
                     <div class="col-md">
@@ -188,7 +189,7 @@ $productDB = new Product();
         <div class="container">
             <p class="lead">Copyright &copy; 2021 Wok&Roll</p>
 
-            <a href="#" class="position-absolute bottom-0 end-0 p-5">
+            <a href="checkout.php" class="position-absolute bottom-0 end-0 p-5">
                 <i class="bi bi-arrow-up-circle text-warning h1"></i>
             </a>
         </div>
