@@ -103,7 +103,6 @@ $productDB = new Product();
                         if (!empty($product)) {
                         ?>
                         <li class="clearfix">
-                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item1.jpg" alt="item1" />
                             <span class="item-name"><?php echo $product['name']; ?></span>
                             <span class="item-price"><?php echo $product['price']; ?></span>
                             <span class="item-quantity">Quantity: <?php echo $amount;?></span>
