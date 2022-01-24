@@ -152,8 +152,10 @@ nav ul li a:hover {
 .noline {
     text-decoration: none;
 }
-
-
+.goog-te-combo{
+    background-color: #212529;
+    color: #abb0be;
+}
 
 bodylogin {
     display: flex;
