@@ -119,7 +119,7 @@ $productDB = new Product();
                     ?>
                 </ul>
 
-                <a href="#" class="button">Checkout</a>
+                <a href="checkout.php" class="button">Checkout</a>
             </div>
 
         </div>
