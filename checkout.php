@@ -94,7 +94,7 @@ foreach (array_count_values($_SESSION['cart']) as $id => $amount) {
                                 echo '&euro;&nbsp;' . number_format($total, 2, ',', '.') . ' <br>';
                                 ?></span>
 
-                        </strong> due Jan 27, 2022</div>
+                        </strong> due in 1 week</div>
                     <form class="space-y-3">
                         <div class="flex shadow-sm rounded">
                             <div class="flex-grow">
