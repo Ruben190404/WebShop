@@ -19,7 +19,7 @@ session_start();
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
-<body class="text-center">
+<body class="text-center bg-dark">
 
 <!-- Navbar -->
 
@@ -57,10 +57,9 @@ session_start();
     </div>
 </nav>
 
-
-<main class="form-signin">
+<div class="container mt-5 w-50">
+    <main class="form-signin mt-5 w-50 mx-auto border border-secondary rounded px-5 pt-5 pb-2">
     <form method="post">
-        <img class="mb-4" src="2.jpg" alt="" width="72" height="57">
 
         <div class="alert alert-info">
         <?php
@@ -69,28 +68,28 @@ session_start();
         ?>
         </div>
 
-        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+        <h1 class="h3 mb-3 fw-normal text-light">Log hier in</h1>
 
         <div class="form-floating">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="username" required>
+            <input type="email" class="form-control mb-2" id="floatingInput" placeholder="name@example.com" name="username" required>
             <label for="floatingInput">Email address</label>
         </div>
         <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" required>
+            <input type="password" class="form-control mb-3" id="floatingPassword" placeholder="Password" name="password" required>
             <label for="floatingPassword">Password</label>
         </div>
 
-        <div class="checkbox mb-3">
+        <div class="checkbox mb-3 text-light">
             <label>
                 <input type="checkbox" value="remember-me"> Remember me
             </label>
         </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-        <a href="register.php" class="w-100 mt-3 btn  btn-lg btn-primary">Register</a>
-        <p class="mt-5 mb-3 text-muted">&copy; 2021 SD3</p>
+        <button class="w-50 btn btn-lg btn-dark border-secondary" type="submit">Sign in</button>
+        <a href="register.php" class="w-50 mt-3 btn btn-dark border-secondary btn-lg">Register</a>
+        <p class="m-3 text-muted">&copy; 2021 SD3</p>
     </form>
 </main>
-
+</div>
 
 </body>
 </html>

@@ -18,7 +18,9 @@ $user = new User();
     <link rel="stylesheet" href="style.css">
     <title>Registreren</title>
 </head>
-<body>
+
+
+<body class="bg-dark">
 
 <!-- Navbar -->
 
@@ -56,9 +58,10 @@ $user = new User();
     </div>
 </nav>
 
-<main class="form-signin">
+
+<div class="container mt-5 w-50">
+<main class="form-signin mt-5 w-50 mx-auto border border-secondary rounded px-5 pt-5 pb-2">
     <form method="post">
-        <img class="mb-4" src="2.jpg" alt="" width="72" height="57">
 
         <div class="alert alert-info">
             <?php
@@ -66,26 +69,26 @@ $user = new User();
             ?>
         </div>
 
-        <h1 class="h3 mb-3 fw-normal">Please register</h1>
+        <p class="h3 text-center text-light m-4">Registreer Hier</p>
 
-        <div class="form-floating">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="username" required>
+        <div class="form-floating mb-2">
+            <input type="email" class="form-control rounded" id="floatingInput" placeholder="name@example.com" name="username" required>
             <label for="floatingInput">Email address</label>
         </div>
         <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" required>
+            <input type="password" class="form-control rounded" id="floatingPassword" placeholder="Password" name="password" required>
             <label for="floatingPassword">Password</label>
         </div>
-
         <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password2" required>
-            <label for="floatingPassword">Password again</label>
+            <input type="password" class="form-control rounded" id="floatingPassword1" placeholder="Password" name="password2" required>
+            <label for="floatingPassword1">Password again</label>
         </div>
 
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
-        <p class="mt-5 mb-3 text-muted">&copy; 2021 SD3</p>
+        <button class="w-50 btn btn-lg btn-dark border-secondary mx-auto d-block mt-3" type="submit">Register</button>
+        <p class="mt-4 text-muted text-center">&copy; 2021 SD3</p>
     </form>
 </main>
+</div>
 </body>
 
 </html>
