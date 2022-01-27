@@ -47,42 +47,39 @@ $productDB = new Product();
 
 
 
-    <!-- Navbar -->
+<!-- Navbar -->
 
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="images/tiger.svg" alt="" width="60" height="auto">
-            </a>
-            <a href="index.html" class="navbar-brand text-warning">Wok & Roll</a>
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <img src="images/tiger.svg" alt="" width="60" height="auto">
+        </a>
+        <a href="index.html" class="navbar-brand text-warning">Wok & Roll</a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navmenu">
-                <ul class="navbar-nav ms-auto">
-                    <li id="google_translate_element"></li>
-                    <script type="text/javascript">
-                        function googleTranslateElementInit() {
-                            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-                        }
-                    </script>
-                    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link">Informatie</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="indian-page.html" class="nav-link">Webshop</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="workshop.html" class="nav-link">Workshop's</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link" id="cart"><i class="fa fa-shopping-cart"></i> Cart <span class="badge"><?php echo $totalnumber?> </span></a>
-                    </li>
-                </ul>
-            </div>
+        <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="navbar-nav ms-auto">
+                <li id="google_translate_element"></li>
+                <script type="text/javascript">
+                    function googleTranslateElementInit() {
+                        new google.translate.TranslateElement({pageLanguage: 'nl'}, 'google_translate_element');
+                    }
+                </script>
+                <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                <li class="nav-item">
+                    <a href="workshop.html" class="nav-link">Workshop's</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.php" class="nav-link">login</a>
+                </li>
+            </ul>
+        </div>
 
             <div class="shopping-cart">
                 <div class="shopping-cart-header">
