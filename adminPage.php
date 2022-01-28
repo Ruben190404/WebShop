@@ -6,7 +6,7 @@ $username = "root";
 $password = "";
 
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=webshop", $username, $password); //updaten voor gezamenlijke database
+    $conn = new PDO("mysql:host=$servername;dbname=login", $username, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -16,7 +16,7 @@ try {
 }
 
 if (isset($_POST['productId'])) {
-    $stmt = $conn->prepare('DELETE FROM products WHERE productId= :id'); //updaten voor gezamenlijke database
+    $stmt = $conn->prepare('DELETE FROM products WHERE id= :id');
     $stmt->bindParam(':id', $_POST['productId']);
     $stmt->execute();
 }
@@ -27,7 +27,7 @@ if (!empty($_POST) && !isset($_POST['productId'])) {
     $image_file= $_FILES["image"]["name"];
     $targetFile= "images/uploads/".$image_file;
     move_uploaded_file($_FILES["image"]['tmp_name'],$targetFile);
-    $newProduct->addProduct($_POST['addName'], $_POST['addPrice'], $_POST['addCategory'], $_POST['addDescription'], $targetFile); //updaten voor gezamenlijke database
+    $newProduct->addProduct($_POST['addName'], $_POST['addPrice'], $_POST['addCategory'], $_POST['addDescription'], $targetFile);
 
 }
 
@@ -69,12 +69,12 @@ if (!empty($_POST) && !isset($_POST['productId'])) {
 
                     ?>
 
-                    <tr class="product"> //updaten voor gezamenlijke database
+                    <tr class="product">
                         <td class="text-center"><?= $product['name']; ?></td>
                         <td class="text-center">€<?= $product['price']; ?></td>
                         <td class="text-center"><?= $product['category'];?></td>
                         <td class="text-center"><?= $product['description'];?></td>
-                        <td class="text-center"><img src="<?= $product['image'];?>" width="auto" height="80px"></td>
+                        <td class="text-center"><img src="<?= $product['picture'];?>" width="auto" height="80px"></td>
                         <td>
                             <form method="post" class="text-center">
                                 <input type="hidden" name="productId" value="<?= $product['productId']; ?>">
