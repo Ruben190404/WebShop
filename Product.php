@@ -22,7 +22,7 @@ class Product
 
         return $stmt->fetchAll();
     }
-    public function addProduct($name, $price, $category, $description, $targetFile)
+    public function addProduct($name, $price, $category, $description, $targetFile) //updaten voor gezamenlijke database
     {
         $db = new Database();
         $conn = $db->connect();
