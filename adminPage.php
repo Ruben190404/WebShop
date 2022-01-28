@@ -6,7 +6,7 @@ $username = "root";
 $password = "";
 
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=webshop", $username, $password);
+    $conn = new PDO("mysql:host=$servername;dbname=webshop", $username, $password); //updaten voor gezamenlijke database
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -16,7 +16,7 @@ try {
 }
 
 if (isset($_POST['productId'])) {
-    $stmt = $conn->prepare('DELETE FROM products WHERE productId= :id');
+    $stmt = $conn->prepare('DELETE FROM products WHERE productId= :id'); //updaten voor gezamenlijke database
     $stmt->bindParam(':id', $_POST['productId']);
     $stmt->execute();
 }
@@ -27,7 +27,7 @@ if (!empty($_POST) && !isset($_POST['productId'])) {
     $image_file= $_FILES["image"]["name"];
     $targetFile= "images/uploads/".$image_file;
     move_uploaded_file($_FILES["image"]['tmp_name'],$targetFile);
-    $newProduct->addProduct($_POST['addName'], $_POST['addPrice'], $_POST['addCategory'], $_POST['addDescription'], $targetFile);
+    $newProduct->addProduct($_POST['addName'], $_POST['addPrice'], $_POST['addCategory'], $_POST['addDescription'], $targetFile); //updaten voor gezamenlijke database
 
 }
 
@@ -69,7 +69,7 @@ if (!empty($_POST) && !isset($_POST['productId'])) {
 
                     ?>
 
-                    <tr class="product">
+                    <tr class="product"> //updaten voor gezamenlijke database
                         <td class="text-center"><?= $product['name']; ?></td>
                         <td class="text-center">€<?= $product['price']; ?></td>
                         <td class="text-center"><?= $product['category'];?></td>
