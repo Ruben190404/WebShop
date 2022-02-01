@@ -161,7 +161,7 @@ $productDB = new Product();
                                 <h3 class="card-title mb-3">
                                     <h1><?= $product['name']; ?></h1>
                                 </h3>
-                                     <p><?= $product['price']; ?></p>
+                                     <p>€<?= $product['price']; ?></p>
                                 <p class="card-text">
                                 <p><?= $product['description']; ?></p>
                                 </p>
