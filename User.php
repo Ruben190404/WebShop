@@ -23,7 +23,7 @@ class User
                     echo 'U bent ingelogd';
                     $_SESSION['currentUser'] = $result['id'];
                     //doorsturen naar een goeie pagina als de login klopt
-                    Header("Location: dashboard.php");
+                    Header("Location: index.html");
                     exit;
 
                 } else {
