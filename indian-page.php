@@ -131,7 +131,7 @@ $productDB = new Product();
                     <img src="images/indian1.png" class="img-fluid rounded-pill" alt="">
                 </div>
                 <div class="col-md ms-3">
-                    <h2>De Indiaase Keuken</h2>
+                    <h2>De Indiase Keuken</h2>
                     <p class="lead">
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, voluptates alias cupiditate doloribus fuga exercitationem.
                     </p>
