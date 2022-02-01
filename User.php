@@ -55,6 +55,7 @@ class User
                     //stap 2 voor de query uit! BOOM!
                     $queryStatement = $connection->prepare("INSERT INTO users (`name`, `password`) VALUES (:username, :password) ");
                     $queryStatement->execute([':username' => $_POST['username'], ':password' => $_POST['password']]);
+                    Header("Location: index.html");
 
 
             }
