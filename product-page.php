@@ -1,7 +1,6 @@
 <?php
 include 'Product.php';
 
-$category = '';
 if (!empty($_GET['category'])) {
     $category = $_GET['category'];
 }
@@ -32,7 +31,7 @@ $productDB = new Product();
             </div>
             <div class="col-md ms-3">
                 DB
-                <h2>De Indiaase Keuken</h2>
+                <h2>De <?php echo ($_GET['category']) ?> Keuken</h2>
                 <p class="lead">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, voluptates alias cupiditate doloribus fuga exercitationem.
                 </p>
@@ -43,7 +42,17 @@ $productDB = new Product();
         </div>
     </div>
 </section>
-
+    <form method="get">
+        <select class="form-select" name="category" aria-label="Default select example" onchange='if(this.value != 0) { this.form.submit(); }'>
+            <option selected>Choose Category</option>
+            <option value="indian">Indian</option>
+            <option value="japanese">Japanese</option>
+            <option value="chinese">Chinese</option>
+            <option value="thai">Thai</option>
+            <option value="vietnamese">Vietnamese</option>
+            <option value="supplies">Supplies</option>
+        </select>
+    </form>
 <!-- Boxes -->
 
 <section class="p-1 p-sm-3 p-md-4 p-lg-5 mt-2 mt-lg-0">
@@ -56,10 +65,7 @@ $productDB = new Product();
                 <div class="col-md">
                     <div class="card bg-dark text-light">
                         <div class="card-body text-center">
-                            <div class="h1 mb-3">
-                                <img src="images/indian600x600.jpg" alt="" class="img-fluid">
-                                NOG UIT DB!
-                            </div>
+                                <img src="<?= $product['picture'];?>" alt="" class="img-fluid">
                             <h3 class="card-title mb-3">
                                 <h1><?= $product['name']; ?></h1>
                             </h3>
