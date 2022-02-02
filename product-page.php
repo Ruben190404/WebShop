@@ -1,0 +1,84 @@
+<?php
+include 'Product.php';
+
+$category = '';
+if (!empty($_GET['category'])) {
+    $category = $_GET['category'];
+}
+
+if (isset($_POST['product_id'])) {
+    $product_id = $_POST['product_id'];
+    if (isset($_SESSION['cart'][$product_id])) {
+        $_SESSION['cart'][$product_id] += 1;
+    } else {
+        $_SESSION['cart'][$product_id] = 1;
+    }
+}
+
+$productDB = new Product();
+?>
+
+<?php include_once 'header.php'; ?>
+
+<!-- Onze Producten -->
+
+
+<section id="webshop" class="m-1 mt-5">
+    <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-md">
+                <img src="images/indian1.png" class="img-fluid rounded-pill" alt="">
+                DB
+            </div>
+            <div class="col-md ms-3">
+                DB
+                <h2>De Indiaase Keuken</h2>
+                <p class="lead">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, voluptates alias cupiditate doloribus fuga exercitationem.
+                </p>
+                <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse ex asperiores, ab sit autem quidem quo animi sapiente blanditiis laborum, sint, mollitia incidunt exercitationem sed eos quisquam earum velit dolore?
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Boxes -->
+
+<section class="p-1 p-sm-3 p-md-4 p-lg-5 mt-2 mt-lg-0">
+    <div class="container">
+        <div class="row text-center g-3">
+            <?php
+            $products = $productDB->getAllByCategory($category);
+            foreach ($products as $product) {
+                ?>
+                <div class="col-md">
+                    <div class="card bg-dark text-light">
+                        <div class="card-body text-center">
+                            <div class="h1 mb-3">
+                                <img src="images/indian600x600.jpg" alt="" class="img-fluid">
+                                NOG UIT DB!
+                            </div>
+                            <h3 class="card-title mb-3">
+                                <h1><?= $product['name']; ?></h1>
+                            </h3>
+                            <p><?= $product['price']; ?></p>
+                            <p class="card-text">
+                            <p><?= $product['description']; ?></p>
+                            </p>
+                            <form method="post">
+                                <input type="hidden" name="product_id" value="<?= $product['id']; ?>">
+                                <a href="#"><button class="btn btn-warning">In Winkelmandje</button></a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <?php
+            }
+            ?>
+        </div>
+    </div>
+</section>
+
+<?php include_once 'footer.php'; ?>

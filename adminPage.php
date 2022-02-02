@@ -30,7 +30,6 @@ if (!empty($_POST) && !isset($_POST['productId'])) {
     $newProduct->addProduct($_POST['addName'], $_POST['addPrice'], $_POST['addCategory'], $_POST['addDescription'], $targetFile);
 
 }
-
 ?>
 
 <html lang="en">
@@ -45,15 +44,13 @@ if (!empty($_POST) && !isset($_POST['productId'])) {
     <body>
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.php">
+            <a class="navbar-brand" href="index.html">
                 <img src="images/tiger.svg" alt="" width="60" height="auto">
             </a>
-            <a href="index.php" class="navbar-brand text-warning">Wok & Roll</a>
-
+            <a href="index.html" class="navbar-brand text-warning">Wok & Roll</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navmenu">
                 <ul class="navbar-nav ms-auto">
                     <li id="google_translate_element"></li>
@@ -76,8 +73,7 @@ if (!empty($_POST) && !isset($_POST['productId'])) {
             </div>
         </div>
     </nav>
-    <div class="mt-5">Admin Page</div>
-    <div class="container h-50 overflow-auto pt-4">
+    <div class="container h-50 overflow-auto pt-5">
         <table  class="table table-hover table-striped">
             <thead>
             <tr>
@@ -109,15 +105,18 @@ if (!empty($_POST) && !isset($_POST['productId'])) {
                         <td class="text-center"><img src="<?= $product['picture'];?>" width="auto" height="80px"></td>
                         <td>
                             <form method="post" class="text-center">
-                                <input type="hidden" name="productId" value="<?= $product['productId']; ?>">
-                                <button class="btn btn-primary">delete</button>
+                                <input type="hidden" name="productId" value="<?= $product['id']; ?>">
+                                <button class="btn btn-primary">Delete</button>
+                            </form>
+                            <form method="post" class="text-center" action="updatePage.php">
+                                <input type="hidden" name="updateProductId" value="<?= $product['id']; ?>">
+                                <button class="btn btn-primary">Update</button>
                             </form>
                         </td>
                     </tr>
 
                     <?php
                 }
-
                 ?>
             </tbody>
         </table>
@@ -125,7 +124,7 @@ if (!empty($_POST) && !isset($_POST['productId'])) {
     <div class="container w-25">
         <form method="POST" enctype="multipart/form-data">
             Name: <input type="text" class="form-control mb-2" name="addName" placeholder="Product Name...">
-            Price: <input type="float" class="form-control mb-2" name="addPrice" placeholder="Price of Product...">
+            Price: <input type="number" class="form-control mb-2" name="addPrice" placeholder="Price of Product...">
             Category: <select class="form-select" name="addCategory" aria-label="Default select example">
                             <option selected>Choose category</option>
                             <option value="Indian">Indian</option>

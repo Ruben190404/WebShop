@@ -22,6 +22,7 @@ class Product
 
         return $stmt->fetchAll();
     }
+
     public function addProduct($name, $price, $category, $description, $targetFile)
     {
         $db = new Database();
@@ -35,4 +36,14 @@ class Product
         $statement->bindParam(":image", $targetFile);
         $statement->execute();
     }
+
+    public function getAllByCategory($category) {
+        $database = new Database();
+        $conn = $database->connect();
+        $stmt = $conn->prepare("SELECT * FROM products WHERE category = :category");
+        $stmt->bindParam(':category', $category);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
 }
