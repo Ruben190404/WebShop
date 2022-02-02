@@ -136,13 +136,13 @@ if (!empty($_POST) && !isset($_POST['productId'])) {
             Naam: <input type="text" class="form-control mb-2" name="addName" placeholder="Product Naam...">
             Prijs: <input type="number" class="form-control mb-2" name="addPrice" placeholder="Product Prijs...">
             Categorie: <select class="form-select" name="addCategory" aria-label="Default select example">
-                            <option selected>Kies Categorie</option>
-                            <option value="Indian">Indiaas</option>
-                            <option value="Japanese">Japans</option>
+                            <option value="0">Kies Categorie</option>
+                            <option value="Indiase">Indiaas</option>
+                            <option value="Japanse">Japans</option>
                             <option value="Chinese">Chinees</option>
-                            <option value="Thai">Thais</option>
+                            <option value="Thaise">Thais</option>
                             <option value="Vietnamese">Vietnamees</option>
-                            <option value="Supplies">Benodigheden</option>
+                            <option value="Benodigheden">Benodigheden</option>
                       </select>
             Beschrijving: <input type="text" class="form-control mb-2" name="addDescription" placeholder="Product Beschrijving...">
             Afbeelding: <input type="file" class="form-control" name="image">

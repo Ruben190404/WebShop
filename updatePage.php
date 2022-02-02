@@ -13,7 +13,7 @@ try {
     echo "Connection failed: " . $e->getMessage();
 }
 
-if(!isset($_POST)){
+if (!empty($_POST) && ($_POST['productId'])) {
     $image_file= $_FILES["updateImage"]["name"];
     $targetFile= "images/uploads/".$image_file;
     move_uploaded_file($_FILES["updateImage"]['tmp_name'],$targetFile);
@@ -47,7 +47,7 @@ if (isset($_POST['updateDescription']) && !empty($_POST['updateDescription'])) {
     exit;
 }
 
-if (isset($_POST['updateCategory']) && !empty($_POST['updateCategory'])) {
+if (isset($_POST['updateCategory']) && !empty($_POST['updateCategory']) && ($_POST['updateCategory']) == 0) {
     $stmt = $conn->prepare('UPDATE products SET category=:category WHERE id =:id');
     $stmt->bindParam(':id', $_POST['updateProductId']);
     $stmt->bindParam(':category', $_POST['updateCategory']);
@@ -86,13 +86,13 @@ if (isset($_POST['updateImage']) && !empty($_POST['updateImage'])) {
         Naam: <input type="text" class="form-control mb-2" name="updateName" placeholder="Product Naam...">
         Prijs: <input type="number" class="form-control mb-2" name="updatePrice" placeholder="Product Prijs...">
         Categorie: <select class="form-select" name="updateCategory" aria-label="Default select example">
-            <option selected>Kies Categorie</option>
-            <option value="Indian">Indiaas</option>
-            <option value="Japanese">Japans</option>
+            <option value="0">Kies Categorie</option>
+            <option value="Indiase">Indiaas</option>
+            <option value="Japanse">Japans</option>
             <option value="Chinese">Chinees</option>
-            <option value="Thai">Thais</option>
+            <option value="Thaise">Thais</option>
             <option value="Vietnamese">Vietnamees</option>
-            <option value="Supplies">Benodigheden</option>
+            <option value="Benodigheden">Benodigheden</option>
         </select>
         Beschrijving: <input type="text" class="form-control mb-2" name="updateDescription" placeholder="Product Beschrijving...">
         Afbeelding: <input type="file" class="form-control" name="updateImage">
