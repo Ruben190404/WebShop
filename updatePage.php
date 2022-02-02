@@ -13,13 +13,6 @@ try {
     echo "Connection failed: " . $e->getMessage();
 }
 
-if (!empty($_POST) && ($_POST['productId'])) {
-    $image_file= $_FILES["updateImage"]["name"];
-    $targetFile= "images/uploads/".$image_file;
-    move_uploaded_file($_FILES["updateImage"]['tmp_name'],$targetFile);
-
-}
-
 if (isset($_POST['updateName']) && !empty($_POST['updateName'])) {
     $stmt = $conn->prepare('UPDATE products SET name=:name WHERE id=:id');
     $stmt->bindParam(':id', $_POST['updateProductId']);
@@ -55,8 +48,12 @@ if (isset($_POST['updateCategory']) && !empty($_POST['updateCategory']) && ($_PO
     Header("Location: adminPage.php?update=1" );
     exit;
 }
-
-if (isset($_POST['updateImage']) && !empty($_POST['updateImage'])) {
+var_dump($_FILES['updateImage']);
+if (isset($_FILES['updateImage']) && !empty($_FILES['updateImage']['name'])) {
+    $image_file= $_FILES["updateImage"]["name"];
+    $targetFile= "images/uploads/".$image_file;
+    move_uploaded_file($_FILES["updateImage"]['tmp_name'],$targetFile);
+    var_dump($targetFile);
     $stmt = $conn->prepare('UPDATE products SET picture=:picture WHERE id =:id');
     $stmt->bindParam(':id', $_POST['updateProductId']);
     $stmt->bindParam(':picture', $targetFile);
