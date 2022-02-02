@@ -92,7 +92,7 @@ foreach (array_count_values($_SESSION['cart']) as $id => $amount) {
                                 ?></span>
 
                         </strong> due in 1 week</div>
-                    <form class="space-y-3">
+                    <form class="space-y-3" action="index.html">
                         <div class="flex shadow-sm rounded">
                             <div class="flex-grow">
                                 <input name="card-nr" class="text-sm text-gray-800 bg-white rounded-l leading-5 py-2 px-3 placeholder-gray-400 w-full border border-transparent focus:border-indigo-300 focus:ring-0" type="text" placeholder="Card Number" aria-label="Card Number" />
@@ -104,7 +104,7 @@ foreach (array_count_values($_SESSION['cart']) as $id => $amount) {
                                 <input name="card-cvc" class="text-sm text-gray-800 bg-white rounded-r leading-5 py-2 px-3 placeholder-gray-400 w-full border border-transparent focus:border-indigo-300 focus:ring-0" type="text" placeholder="CVC" aria-label="CVC" />
                             </div>
                         </div>
-                        <button type="submit" class="font-semibold text-sm inline-flex items-center justify-center px-3 py-2 border border-transparent rounded leading-5 shadow transition duration-150 ease-in-out w-full bg-indigo-500 hover:bg-indigo-600 text-white focus:outline-none focus-visible:ring-2">Pay Now</button>
+                        <button type="submit" class="font-semibold text-sm inline-flex items-center justify-center px-3 py-2 border border-transparent rounded leading-5 shadow transition duration-150 ease-in-out w-full bg-indigo-500 hover:bg-indigo-600 text-white focus:outline-none focus-visible:ring-2">Pay</button>
                     </form>
                 </div>
             </div>
