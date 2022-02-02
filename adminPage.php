@@ -15,6 +15,8 @@ try {
     echo "Connection failed: " . $e->getMessage();
 }
 
+$category = $_POST[''];
+
 if (isset($_POST['productId'])) {
     $stmt = $conn->prepare('DELETE FROM products WHERE id= :id');
     $stmt->bindParam(':id', $_POST['productId']);
@@ -38,7 +40,7 @@ if (!empty($_POST) && !isset($_POST['productId'])) {
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Admin page</title>
+        <title>Admin Pagina</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     </head>
     <body>
@@ -74,15 +76,23 @@ if (!empty($_POST) && !isset($_POST['productId'])) {
         </div>
     </nav>
     <div class="container h-50 overflow-auto pt-5">
+
+        <?php
+        if (!empty($_GET['update'])) {
+            echo 'Het product is opgeslagen.';
+        }
+        ?>
+
+
         <table  class="table table-hover table-striped">
             <thead>
             <tr>
-                <th scope="col" class="text-center">Name</th>
-                <th scope="col" class="text-center">Price</th>
-                <th scope="col" class="text-center">Category</th>
-                <th scope="col" class="text-center">Description</th>
-                <th scope="col" class="text-center">Image</th>
-                <th scope="col" class="text-center">Delete</th>
+                <th scope="col" class="text-center">Naam</th>
+                <th scope="col" class="text-center">Prijs</th>
+                <th scope="col" class="text-center">Categorie</th>
+                <th scope="col" class="text-center">Beschrijving</th>
+                <th scope="col" class="text-center">Afbeeling</th>
+                <th scope="col" class="text-center">Verwijder/Bewerken</th>
             </tr>
             </thead>
             <tbody>
@@ -106,11 +116,11 @@ if (!empty($_POST) && !isset($_POST['productId'])) {
                         <td>
                             <form method="post" class="text-center">
                                 <input type="hidden" name="productId" value="<?= $product['id']; ?>">
-                                <button class="btn btn-primary">Delete</button>
+                                <button class="btn btn-primary">Verwijder</button>
                             </form>
                             <form method="post" class="text-center" action="updatePage.php">
                                 <input type="hidden" name="updateProductId" value="<?= $product['id']; ?>">
-                                <button class="btn btn-primary">Update</button>
+                                <button class="btn btn-primary">Bewerken</button>
                             </form>
                         </td>
                     </tr>
@@ -123,20 +133,20 @@ if (!empty($_POST) && !isset($_POST['productId'])) {
     </div>
     <div class="container w-25">
         <form method="POST" enctype="multipart/form-data">
-            Name: <input type="text" class="form-control mb-2" name="addName" placeholder="Product Name...">
-            Price: <input type="number" class="form-control mb-2" name="addPrice" placeholder="Price of Product...">
-            Category: <select class="form-select" name="addCategory" aria-label="Default select example">
-                            <option selected>Choose category</option>
-                            <option value="Indian">Indian</option>
-                            <option value="Japanese">Japanese</option>
-                            <option value="Chinese">Chinese</option>
-                            <option value="Thai">Thai</option>
-                            <option value="Vietnamese">Vietnamese</option>
-                            <option value="Supplies">Supplies</option>
+            Naam: <input type="text" class="form-control mb-2" name="addName" placeholder="Product Naam...">
+            Prijs: <input type="number" class="form-control mb-2" name="addPrice" placeholder="Product Prijs...">
+            Categorie: <select class="form-select" name="addCategory" aria-label="Default select example">
+                            <option selected>Kies Categorie</option>
+                            <option value="Indian">Indiaas</option>
+                            <option value="Japanese">Japans</option>
+                            <option value="Chinese">Chinees</option>
+                            <option value="Thai">Thais</option>
+                            <option value="Vietnamese">Vietnamees</option>
+                            <option value="Supplies">Benodigheden</option>
                       </select>
-            Description: <input type="text" class="form-control mb-2" name="addDescription" placeholder="Product Description...">
-            Image: <input type="file" class="form-control" name="image">
-            <button class="btn btn-primary" type="submit">Add Product</button>
+            Beschrijving: <input type="text" class="form-control mb-2" name="addDescription" placeholder="Product Beschrijving...">
+            Afbeelding: <input type="file" class="form-control" name="image">
+            <button class="btn btn-primary" type="submit">Product Toevoegen</button>
         </form>
     </div>
     </body>
