@@ -15,13 +15,6 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="jquery.js"></script>
 
-<script>
-    (function(){
-
-        $("#cart").on("click", function() {
-            $(".shopping-cart").fadeToggle( "fast");
-        });
-
-    })();</script>
+<script src="default.js"></script>
 </body>
 </html>

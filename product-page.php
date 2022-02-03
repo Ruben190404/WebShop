@@ -20,8 +20,6 @@ $productDB = new Product();
 <?php include_once 'header.php'; ?>
 
 <!-- Onze Producten -->
-
-
 <section id="webshop" class="m-1 mt-5">
     <div class="container">
         <div class="row align-items-center justify-content-between">
