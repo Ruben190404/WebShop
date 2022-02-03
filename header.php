@@ -96,7 +96,7 @@ foreach ( $_SESSION['cart'] as $id => $amount){
                             <li class="clearfix">
                                 <span class="item-name"><?php echo $product['name']; ?></span>
                                 <span class="item-price"><?php echo $product['price']; ?></span>
-                                <span class="item-quantity">Aantal:: <?php echo $amount;?></span>
+                                <span class="item-quantity">Aantal: <?php echo $amount;?></span>
                             </li>
                             <?php
                         }
