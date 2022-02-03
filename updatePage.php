@@ -1,66 +1,15 @@
 <?php
-$servername = "127.0.0.1";
-$username = "root";
-$password = "";
+include_once 'Product.php';
 
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=login", $username, $password);
-    // set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$newProduct = new Product();
 
-//        echo "Connected successfully";
-} catch (PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
-}
-
-if (isset($_POST['updateName']) && !empty($_POST['updateName'])) {
-    $stmt = $conn->prepare('UPDATE products SET name=:name WHERE id=:id');
-    $stmt->bindParam(':id', $_POST['updateProductId']);
-    $stmt->bindParam(':name', $_POST['updateName']);
-    $stmt->execute();
+if (!empty($_POST['updateName'])) {
+    $newProduct->updateProduct($_POST['updateProductId']);
     Header("Location: adminPage.php?update=1" );
     exit;
 }
 
-if (isset($_POST['updatePrice']) && !empty($_POST['updatePrice'])) {
-    $stmt = $conn->prepare('UPDATE products SET price=:price WHERE id=:id');
-    $stmt->bindParam(':id', $_POST['updateProductId']);
-    $stmt->bindParam(':price', $_POST['updatePrice']);
-    $stmt->execute();
-    Header("Location: adminPage.php?update=1" );
-    exit;
-}
-
-if (isset($_POST['updateDescription']) && !empty($_POST['updateDescription'])) {
-    $stmt = $conn->prepare('UPDATE products SET description=:description WHERE id =:id');
-    $stmt->bindParam(':id', $_POST['updateProductId']);
-    $stmt->bindParam(':description', $_POST['updateDescription']);
-    $stmt->execute();
-    Header("Location: adminPage.php?update=1" );
-    exit;
-}
-
-if (isset($_POST['updateCategory']) && !empty($_POST['updateCategory']) && ($_POST['updateCategory']) == 0) {
-    $stmt = $conn->prepare('UPDATE products SET category=:category WHERE id =:id');
-    $stmt->bindParam(':id', $_POST['updateProductId']);
-    $stmt->bindParam(':category', $_POST['updateCategory']);
-    $stmt->execute();
-    Header("Location: adminPage.php?update=1" );
-    exit;
-}
-var_dump($_FILES['updateImage']);
-if (isset($_FILES['updateImage']) && !empty($_FILES['updateImage']['name'])) {
-    $image_file= $_FILES["updateImage"]["name"];
-    $targetFile= "images/uploads/".$image_file;
-    move_uploaded_file($_FILES["updateImage"]['tmp_name'],$targetFile);
-    var_dump($targetFile);
-    $stmt = $conn->prepare('UPDATE products SET picture=:picture WHERE id =:id');
-    $stmt->bindParam(':id', $_POST['updateProductId']);
-    $stmt->bindParam(':picture', $targetFile);
-    $stmt->execute();
-    Header("Location: adminPage.php?update=1" );
-    exit;
-}
+$product = $newProduct->getProduct($_POST['updateProductId']);
 
 ?>
 <!doctype html>
@@ -74,26 +23,27 @@ if (isset($_FILES['updateImage']) && !empty($_FILES['updateImage']['name'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
-<div class="container py-5"></div>
-<div class="container py-5">
-<div class="container w-25 pt-5">
+<div class="container">
+<div class="container w-25">
     <div class="h1 text-center p-3">Bewerk Pagina</div>
     <form method="POST" enctype="multipart/form-data" action="">
-        <input type="hidden" name="updateProductId" value="<?= $_POST['updateProductId']; ?>">
-        Naam: <input type="text" class="form-control mb-2" name="updateName" placeholder="Product Naam...">
-        Prijs: <input type="number" class="form-control mb-2" name="updatePrice" placeholder="Product Prijs...">
+        <input type="hidden" name="updateProductId" value="<?php echo $_POST['updateProductId']; ?>">
+        Naam: <input type="text" class="form-control mb-2" name="updateName" placeholder="Product Naam..." value="<?php echo $product['name']; ?>" required>
+        Prijs: <input type="number" class="form-control mb-2" name="updatePrice" placeholder="Product Prijs..." value="<?php echo $product['price']; ?>" required>
         Categorie: <select class="form-select" name="updateCategory" aria-label="Default select example">
             <option value="0">Kies Categorie</option>
-            <option value="Indiase">Indiaas</option>
-            <option value="Japanse">Japans</option>
-            <option value="Chinese">Chinees</option>
-            <option value="Thaise">Thais</option>
-            <option value="Vietnamese">Vietnamees</option>
-            <option value="Benodigheden">Benodigheden</option>
+            <option value="Indiase" <?php if ($product['category'] === 'Indiase') { echo 'selected';}?>>Indiaas</option>
+            <option value="Japanse" <?php if ($product['category'] === 'Japanse') { echo 'selected';}?>>Japans</option>
+            <option value="Chinese" <?php if ($product['category'] === 'Chinese') { echo 'selected';}?>>Chinees</option>
+            <option value="Thaise" <?php if ($product['category'] === 'Thaise') { echo 'selected';}?>>Thais</option>
+            <option value="Vietnamese" <?php if ($product['category'] === 'Vietnamese') { echo 'selected';}?>>Vietnamees</option>
+            <option value="Benodigheden" <?php if ($product['category'] === 'Benodigheden') { echo 'selected';}?>>Benodigheden</option>
         </select>
-        Beschrijving: <input type="text" class="form-control mb-2" name="updateDescription" placeholder="Product Beschrijving...">
-        Afbeelding: <input type="file" class="form-control" name="updateImage">
+        Beschrijving: <input type="text" class="form-control mb-2" name="updateDescription" placeholder="Product Beschrijving..." value="<?php echo $product['description']; ?>">
+        Huidige afbeelding: <img class="rounded ps-4" width="auto" height="250px" src="<?php echo $product['picture'];?>" />
+        Nieuwe afbeelding (leeglaten wanneer niet van toepassing): <input type="file" class="form-control" name="image">
         <button class="btn btn-primary mt-2" type="submit">Bewerk Product</button>
+        <a href="adminPage.php" class="btn btn-primary mt-2">Terug</a>
     </form>
 </div>
 </div>

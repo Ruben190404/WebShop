@@ -1,35 +1,14 @@
 <?php
 include 'Product.php';
 
-$servername = "127.0.0.1";
-$username = "root";
-$password = "";
-
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=login", $username, $password);
-    // set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-//        echo "Connected successfully";
-} catch (PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
-}
-
-$category = $_POST[''];
-
-if (isset($_POST['productId'])) {
-    $stmt = $conn->prepare('DELETE FROM products WHERE id= :id');
-    $stmt->bindParam(':id', $_POST['productId']);
-    $stmt->execute();
-}
-
 $newProduct = new Product();
 
+if (isset($_POST['productId'])) {
+    $newProduct->deleteProduct($_POST['productId']);
+}
+
 if (!empty($_POST) && !isset($_POST['productId'])) {
-    $image_file= $_FILES["image"]["name"];
-    $targetFile= "images/uploads/".$image_file;
-    move_uploaded_file($_FILES["image"]['tmp_name'],$targetFile);
-    $newProduct->addProduct($_POST['addName'], $_POST['addPrice'], $_POST['addCategory'], $_POST['addDescription'], $targetFile);
+    $newProduct->addProduct($_POST['addName'], $_POST['addPrice'], $_POST['addCategory'], $_POST['addDescription']);
 
 }
 ?>
@@ -83,7 +62,6 @@ if (!empty($_POST) && !isset($_POST['productId'])) {
         }
         ?>
 
-
         <table  class="table table-hover table-striped">
             <thead>
             <tr>
@@ -97,16 +75,8 @@ if (!empty($_POST) && !isset($_POST['productId'])) {
             </thead>
             <tbody>
                 <?php
-
-                $stmt = $conn->prepare("SELECT * FROM products");
-                $stmt->execute();
-
-                $products = $stmt->fetchAll();
-
-                foreach ($products as $product) {
-
+                foreach ($newProduct->getAllProducts() as $product) {
                     ?>
-
                     <tr class="product">
                         <td class="text-center"><?= $product['name']; ?></td>
                         <td class="text-center">€<?= $product['price']; ?></td>
