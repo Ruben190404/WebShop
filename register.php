@@ -73,18 +73,18 @@ $user = new User();
 
         <div class="form-floating mb-2">
             <input type="email" class="form-control rounded" id="floatingInput" placeholder="name@example.com" name="username" required>
-            <label for="floatingInput">Email address</label>
+            <label for="floatingInput">Email</label>
         </div>
         <div class="form-floating">
             <input type="password" class="form-control rounded" id="floatingPassword" placeholder="Password" name="password" required>
-            <label for="floatingPassword">Password</label>
+            <label for="floatingPassword">Wachtwoord</label>
         </div>
         <div class="form-floating">
             <input type="password" class="form-control rounded" id="floatingPassword1" placeholder="Password" name="password2" required>
-            <label for="floatingPassword1">Password again</label>
+            <label for="floatingPassword1">Wachtwoord bevestigen</label>
         </div>
 
-        <button class="w-50 btn btn-lg btn-dark border-secondary mx-auto d-block mt-3" type="submit">Register</button>
+        <button class="w-50 btn btn-lg btn-dark border-secondary mx-auto d-block mt-3" type="submit">Registreer</button>
         <p class="mt-4 text-muted text-center">&copy; 2021 SD3</p>
     </form>
 </main>

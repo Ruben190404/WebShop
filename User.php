@@ -35,7 +35,7 @@ class User
 
 
         } else {
-            echo 'You are not logged in';
+            echo 'U bent niet ingelogd';
         }
     }
 
@@ -43,9 +43,9 @@ class User
     {
         if (isset($_POST['username'])) {
             if ($_POST['username'] === '' || !filter_var($_POST['username'], FILTER_VALIDATE_EMAIL)) {
-                echo 'De username is foutief ingevuld';
+                echo 'De gebruikernaam is verkeerd ingevuld';
             } elseif ($_POST['password'] !== $_POST['password2']) {
-                echo 'DE WACHTWOORDEN KOMEN NIET OVERHEEN';
+                echo 'De wachtwoorden komen niet overeen';
             } elseif (!empty($_POST['username']) && !empty($_POST['password'])) {
 
                     //stap 1 verbinden met database
@@ -60,7 +60,7 @@ class User
 
             }
         } elseif (!isset($_POST['username']) && !isset($_POST['password'])) {
-            echo 'Please register';
+            echo 'Graag registeren';
 
 
         }
