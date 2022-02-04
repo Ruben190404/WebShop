@@ -34,12 +34,12 @@ $productDB = new Product();
             <form method="get">
                 <select class="form-select w-25 text-center float-end position-static" name="category" aria-label="Default select example" onchange='if(this.value != 0) { this.form.submit(); }'>
                     <option value="0">Kies Categorie</option>
-                    <option value="Indiase">Indiaas</option>
-                    <option value="Japanse">Japans</option>
-                    <option value="Chinese">Chinees</option>
-                    <option value="Thaise">Thais</option>
-                    <option value="Vietnamese">Vietnamees</option>
-                    <option value="Benodigheden">Benodigheden</option>
+                    <option value="indian">Indiaas</option>
+                    <option value="japanese">Japans</option>
+                    <option value="chinese">Chinees</option>
+                    <option value="thai">Thais</option>
+                    <option value="vietnam">Vietnamees</option>
+                    <option value="supplies">Benodigheden</option>
                 </select>
             </form>
         </div>

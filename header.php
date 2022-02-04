@@ -68,10 +68,10 @@ if (!isset($_SESSION['adminstatus'])) {
                     </script>
                     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
                     <li class="nav-item">
-                        <a href="workshop.html" class="nav-link">Workshop's</a>
+                        <a href="workshop.php" class="nav-link">Workshop's</a>
                     </li>
                     <li class="nav-item">
-                        <a href="contact.html" class="nav-link">Contact</a>
+                        <a href="contact.php" class="nav-link">Contact</a>
                     </li>
 
                     <li class="nav-item">

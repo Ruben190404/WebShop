@@ -6,6 +6,9 @@ session_start();
 if (!isset($_SESSION['status'])) {
     $_SESSION['status'] = 0;
 }
+if (!isset($_SESSION['adminstatus'])) {
+    $_SESSION['adminstatus'] = 0;
+}
 ?>
 <head>
     <meta charset="UTF-8">
@@ -20,43 +23,44 @@ if (!isset($_SESSION['status'])) {
 
 <body>
 
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="index.php">
-                <img src="images/tiger.svg" alt="" width="60" height="auto">
-            </a>
-            <a href="index.php" class="navbar-brand text-warning">Wok & Roll</a>
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.php">
+            <img src="images/tiger.svg" alt="" width="60" height="auto">
+        </a>
+        <a href="index.php" class="navbar-brand text-warning">Wok & Roll</a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <div class="collapse navbar-collapse" id="navmenu">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a href="adminPage.php" class="nav-link">Admin Page</a>
-                    </li>
-                    <li id="google_translate_element"></li>
-                    <script type="text/javascript">
-                        function googleTranslateElementInit() {
-                            new google.translate.TranslateElement({pageLanguage: 'nl'}, 'google_translate_element');
-                        }
-                    </script>
-                    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-                    <li class="nav-item">
-                        <a href="workshop.html" class="nav-link">Workshop's</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="contact.html" class="nav-link">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="login.php" class="nav-link" <?php echo ($_SESSION['status'] == 1) ? 'style="display:none;"' : '' ?>>Login</a>
-                        <a href="logout.php" class="nav-link" <?php echo ($_SESSION['status'] == 0)? 'style="display:none;"' : ''  ?>>Logout</a>
-                    </li>
-                </ul>
-            </div>
+        <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a href="adminPage.php" class="nav-link" <?php echo ($_SESSION['adminstatus'] == 0) ? 'style="display:none;"' : '' ?>>Product Beheer</a>
+                    <a class="nav-link" <?php echo ($_SESSION['adminstatus'] == 1) ? 'style="display:none;"' : '' ?>>&nbsp;</a>
+                </li>
+                <li id="google_translate_element"></li>
+                <script type="text/javascript">
+                    function googleTranslateElementInit() {
+                        new google.translate.TranslateElement({pageLanguage: 'nl'}, 'google_translate_element');
+                    }
+                </script>
+                <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                <li class="nav-item">
+                    <a href="workshop.php" class="nav-link">Workshop's</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.php" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.php" class="nav-link" <?php echo ($_SESSION['status'] == 1) ? 'style="display:none;"' : '' ?>>Login</a>
+                    <a href="logout.php" class="nav-link" <?php echo ($_SESSION['status'] == 0)? 'style="display:none;"' : ''  ?>>Logout</a>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <!-- Showcase -->
 
@@ -246,7 +250,7 @@ if (!isset($_SESSION['status'])) {
                         quidem quo animi sapiente blanditiis laborum, sint, mollitia incidunt exercitationem sed eos
                         quisquam earum velit dolore?
                     </p>
-                    <a href="workshop.html" class="btn btn-light mt-3">
+                    <a href="workshop.php" class="btn btn-light mt-3">
                         <i class="bi bi-chevron-right"></i> Meer Informatie
                     </a>
                 </div>
