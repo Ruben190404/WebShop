@@ -25,10 +25,10 @@ session_start();
 
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="index.php">
             <img src="images/tiger.svg" alt="" width="60" height="auto">
         </a>
-        <a href="index.html" class="navbar-brand text-warning">Wok & Roll</a>
+        <a href="index.php" class="navbar-brand text-warning">Wok & Roll</a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
             <span class="navbar-toggler-icon"></span>
@@ -57,14 +57,13 @@ session_start();
     </div>
 </nav>
 
-<div class="container my-5 w-50">
-    <main class="form-signin my-5 w-50 mx-auto border border-secondary rounded px-5 pt-5 pb-1">
+<div class="container mt-5 w-50">
+    <main class="form-signin mt-5 w-50 mx-auto border border-secondary rounded px-5 pt-5 pb-2">
     <form method="post">
 
         <div class="alert alert-info">
         <?php
         $user->login();
-
         ?>
         </div>
 
@@ -72,20 +71,20 @@ session_start();
 
         <div class="form-floating">
             <input type="email" class="form-control mb-2" id="floatingInput" placeholder="name@example.com" name="username" required>
-            <label for="floatingInput">Email</label>
+            <label for="floatingInput">Email address</label>
         </div>
         <div class="form-floating">
             <input type="password" class="form-control mb-3" id="floatingPassword" placeholder="Password" name="password" required>
-            <label for="floatingPassword">Wachtwoord</label>
+            <label for="floatingPassword">Password</label>
         </div>
 
         <div class="checkbox mb-3 text-light">
             <label>
-                <input type="checkbox" value="remember-me"> Onthoud mij
+                <input type="checkbox" value="remember-me"> Remember me
             </label>
         </div>
-        <button class="w-50 btn btn-lg btn-dark border-secondary" type="submit">Log in</button>
-        <a href="register.php" class="w-50 mt-3 btn btn-dark border-secondary btn-lg">Registreer</a>
+        <button class="w-50 btn btn-lg btn-dark border-secondary" type="submit">Sign in</button>
+        <a href="register.php" class="w-50 mt-3 btn btn-dark border-secondary btn-lg">Register</a>
         <p class="m-3 text-muted">&copy; 2021 SD3</p>
     </form>
 </main>

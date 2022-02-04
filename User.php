@@ -23,7 +23,12 @@ class User
                     echo 'U bent ingelogd';
                     $_SESSION['currentUser'] = $result['id'];
                     //doorsturen naar een goeie pagina als de login klopt
-                    Header("Location: index.html");
+                    $_SESSION['status'] = 1;
+                    if ($result['admin'] == '1'){
+                        $_SESSION['adminstatus'] = 1;
+                    }
+
+                    Header("Location: index.php");
                     exit;
 
                 } else {
@@ -35,35 +40,42 @@ class User
 
 
         } else {
-            echo 'U bent niet ingelogd';
+            echo 'You are not logged in';
         }
     }
 
     public function register()
     {
-        if (isset($_POST['username'])) {
-            if ($_POST['username'] === '' || !filter_var($_POST['username'], FILTER_VALIDATE_EMAIL)) {
-                echo 'De gebruikernaam is verkeerd ingevuld';
-            } elseif ($_POST['password'] !== $_POST['password2']) {
-                echo 'De wachtwoorden komen niet overeen';
-            } elseif (!empty($_POST['username']) && !empty($_POST['password'])) {
 
-                    //stap 1 verbinden met database
-                    $database = new Database();
-                    $connection = $database->connect();
-
-                    //stap 2 voor de query uit! BOOM!
-                    $queryStatement = $connection->prepare("INSERT INTO users (`name`, `password`) VALUES (:username, :password) ");
-                    $queryStatement->execute([':username' => $_POST['username'], ':password' => $_POST['password']]);
-                    Header("Location: index.html");
-
-
-            }
-        } elseif (!isset($_POST['username']) && !isset($_POST['password'])) {
-            echo 'Graag registeren';
-
-
+        if (!isset($_POST['username'])) {
+            echo 'je hebt geen username ingevuld';
+            return;
         }
+
+        if (!isset($_POST['password'])) {
+            echo 'je hebt geen password ingevuld';
+            return;
+        }
+
+        if ($_POST['username'] === '' || !filter_var($_POST['username'], FILTER_VALIDATE_EMAIL)) {
+            echo 'De username is foutief ingevuld';
+            return;
+        }
+
+        if ($_POST['password'] !== $_POST['password2']) {
+            echo 'DE WACHTWOORDEN KOMEN NIET OVEREEN';
+            return;
+        }
+
+        //stap 1 verbinden met database
+        $database = new Database();
+        $connection = $database->connect();
+
+        //stap 2 voor de query uit! BOOM!
+        $queryStatement = $connection->prepare("INSERT INTO users (`name`, `password`) VALUES (:username, :password) ");
+        $queryStatement->execute([':username' => $_POST['username'], ':password' => $_POST['password']]);
+        Header("Location: index.php");
+        exit;
     }
 
     public function currentUser()

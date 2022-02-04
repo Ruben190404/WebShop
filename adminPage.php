@@ -1,4 +1,13 @@
 <?php
+session_start();
+if (!isset($_SESSION['adminstatus'])) {
+    $_SESSION['adminstatus'] = 0;
+}
+
+if ($_SESSION['adminstatus'] === 0) {
+    Header("Location: login.php");
+}
+
 include 'Product.php';
 
 $newProduct = new Product();
@@ -25,10 +34,10 @@ if (!empty($_POST) && !isset($_POST['productId'])) {
     <body>
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="index.php">
                 <img src="images/tiger.svg" alt="" width="60" height="auto">
             </a>
-            <a href="index.html" class="navbar-brand text-warning">Wok & Roll</a>
+            <a href="index.php" class="navbar-brand text-warning">Wok & Roll</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
                 <span class="navbar-toggler-icon"></span>
             </button>

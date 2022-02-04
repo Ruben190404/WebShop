@@ -2,6 +2,7 @@
 
 session_start();
 
+
 include 'Product.php';
 $productDB = new Product();
 
@@ -67,12 +68,12 @@ foreach (array_count_values($_SESSION['cart']) as $id => $amount) {
                     <!-- Avatar -->
                     <img src="images/tiger.svg" class="inline-flex -mt-9 w-[72px] h-[72px] fill-current rounded-full border-4 border-white box-content shadow mb-3" viewBox="0 0 72 72">
                     <!-- Card name -->
-                    <h3 class="text-xl font-bold text-gray-900 mb-1">Invoice from Wok&Roll.</h3>
-                    <div class="text-sm font-medium text-gray-500">Invoice #<p id="invoice"></p></div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">Factuur van Wok&Roll.</h3>
+                    <div class="text-sm font-medium text-gray-500">Factuur #<p id="invoice"></p></div>
                 </header>
                 <!-- Card body -->
                 <div class="bg-gray-100 text-center px-5 py-6">
-                    <div class="text-sm mb-6"><strong class="font-semibold">Total:</span>
+                    <div class="text-sm mb-6"><strong class="font-semibold">Totaal:</span>
                             <span class="main-color-text"><?php
 
                                 foreach ($_SESSION['cart'] as $id => $amount) {
@@ -92,10 +93,10 @@ foreach (array_count_values($_SESSION['cart']) as $id => $amount) {
                                 ?></span>
 
                         </strong> due in 1 week</div>
-                    <form class="space-y-3" action="index.html">
+                    <form class="space-y-3" action="index.php">
                         <div class="flex shadow-sm rounded">
                             <div class="flex-grow">
-                                <input name="card-nr" class="text-sm text-gray-800 bg-white rounded-l leading-5 py-2 px-3 placeholder-gray-400 w-full border border-transparent focus:border-indigo-300 focus:ring-0" type="text" placeholder="Card Number" aria-label="Card Number" />
+                                <input name="card-nr" class="text-sm text-gray-800 bg-white rounded-l leading-5 py-2 px-3 placeholder-gray-400 w-full border border-transparent focus:border-indigo-300 focus:ring-0" type="text" placeholder="Kaart Nummer" aria-label="Card Number" />
                             </div>
                             <div class="flex-none w-[4.8rem]">
                                 <input name="card-expiry" class="text-sm text-gray-800 bg-white leading-5 py-2 px-3 placeholder-gray-400 w-full border border-transparent focus:border-indigo-300 focus:ring-0" type="text" placeholder="MM/YY" aria-label="Expiration" />

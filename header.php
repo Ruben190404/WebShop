@@ -20,6 +20,16 @@ foreach ( $_SESSION['cart'] as $id => $amount){
         $totalnumber += $amount;
     }
 }
+
+
+if (!isset($_SESSION['status'])) {
+    $_SESSION['status'] = 0;
+}
+
+if (!isset($_SESSION['adminstatus'])) {
+    $_SESSION['adminstatus'] = 0;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -39,10 +49,10 @@ foreach ( $_SESSION['cart'] as $id => $amount){
 
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="index.php">
                 <img src="images/tiger.svg" alt="" width="60" height="auto">
             </a>
-            <a href="index.html" class="navbar-brand text-warning">Wok & Roll</a>
+            <a href="index.php" class="navbar-brand text-warning">Wok & Roll</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
                 <span class="navbar-toggler-icon"></span>
@@ -63,8 +73,10 @@ foreach ( $_SESSION['cart'] as $id => $amount){
                     <li class="nav-item">
                         <a href="contact.html" class="nav-link">Contact</a>
                     </li>
+
                     <li class="nav-item">
-                        <a href="login.php" class="nav-link">login</a>
+                        <a href="login.php" class="nav-link" <?php echo ($_SESSION['status'] == 1) ? 'style="display:none;"' : '' ?>>Login</a>
+                        <a href="logout.php" class="nav-link" <?php echo ($_SESSION['status'] == 0)? 'style="display:none;"' : ''  ?>>Logout</a>
                     </li>
                 </ul>
             </div>
