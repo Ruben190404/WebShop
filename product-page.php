@@ -22,7 +22,6 @@ $productDB = new Product();
                     <img src="images/indian1.png" class="img-fluid rounded-pill" alt="">
                 </div>
                 <div class="col-md ms-3">
-      
                     <h2>De <?php echo ($_GET['category']) ?> Keuken</h2>
                     <p class="lead">
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat, voluptates alias cupiditate doloribus fuga exercitationem.
@@ -54,6 +53,7 @@ $productDB = new Product();
                 <?php
                 $products = $productDB->getAllByCategory($category);
                 foreach ($products as $product) {
+                    $total += ($product['price']);
                     ?>
                     <div class="col-md">
                         <div class="card bg-dark text-light">
@@ -62,7 +62,7 @@ $productDB = new Product();
                                 <h3 class="card-title mb-3">
                                     <h1><?= $product['name']; ?></h1>
                                 </h3>
-                                <p><?= $product['price']; ?></p>
+                                <p><?= '&euro;&nbsp;' . number_format($total, 2, ',', '.') . ' <br>'; ?></p>
                                 <p class="card-text">
                                 <p><?= $product['description']; ?></p>
                                 </p>
