@@ -86,7 +86,7 @@ if (!empty($_POST) && !isset($_POST['productId'])) {
             <option value="Benodigheden">Benodigheden</option>
         </select>
         <label for="description" class="form-label">Beschrijving:</label>
-        <textarea class="form-control mb-2" id="description" rows="3"></textarea>
+        Beschrijving: <input type="text" class="form-control mb-2" name="addDescription" placeholder="Product Beschrijving...">
         Afbeelding: <input type="file" class="form-control mb-3" name="image">
         <button class="btn btn-white border-secondary" type="submit">Product Toevoegen</button>
     </form>
