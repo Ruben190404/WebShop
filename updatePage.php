@@ -81,12 +81,12 @@ $product = $newProduct->getProduct($_POST['updateProductId']);
         Prijs: <input type="number" class="form-control mb-2" name="updatePrice" placeholder="Product Prijs..." value="<?php echo $product['price']; ?>" required>
         Categorie: <select class="form-select" name="updateCategory" aria-label="Default select example">
             <option value="0">Kies Categorie</option>
-            <option value="Indiase" <?php if ($product['category'] === 'Indiase') { echo 'selected';}?>>Indiaas</option>
-            <option value="Japanse" <?php if ($product['category'] === 'Japanse') { echo 'selected';}?>>Japans</option>
-            <option value="Chinese" <?php if ($product['category'] === 'Chinese') { echo 'selected';}?>>Chinees</option>
-            <option value="Thaise" <?php if ($product['category'] === 'Thaise') { echo 'selected';}?>>Thais</option>
-            <option value="Vietnamese" <?php if ($product['category'] === 'Vietnamese') { echo 'selected';}?>>Vietnamees</option>
-            <option value="Benodigheden" <?php if ($product['category'] === 'Benodigheden') { echo 'selected';}?>>Benodigheden</option>
+            <option value="Indiase" <?php if ($product['category'] === 'indian') { echo 'selected';}?>>indian</option>
+            <option value="Japanse" <?php if ($product['category'] === 'japanese') { echo 'selected';}?>>japanese</option>
+            <option value="Chinese" <?php if ($product['category'] === 'chinese') { echo 'selected';}?>>chinese</option>
+            <option value="Thaise" <?php if ($product['category'] === 'thai') { echo 'selected';}?>>thai</option>
+            <option value="Vietnamese" <?php if ($product['category'] === 'vietnam') { echo 'selected';}?>>Vietnamees</option>
+            <option value="Benodigheden" <?php if ($product['category'] === 'supplies') { echo 'selected';}?>>Benodigheden</option>
         </select>
         Beschrijving: <input type="text" class="form-control mb-2" name="updateDescription" placeholder="Product Beschrijving..." value="<?php echo $product['description']; ?>">
         Huidige afbeelding: <img class="rounded ps-4" width="auto" height="250px" src="<?php echo $product['picture'];?>" />
