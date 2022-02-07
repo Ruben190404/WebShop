@@ -40,7 +40,7 @@ class User
 
 
         } else {
-            echo 'You are not logged in';
+            echo 'U bent niet ingelogd';
         }
     }
 
@@ -48,22 +48,22 @@ class User
     {
 
         if (!isset($_POST['username'])) {
-            echo 'je hebt geen username ingevuld';
+            echo 'U heeft geen gebruikersnaam ingevuld';
             return;
         }
 
         if (!isset($_POST['password'])) {
-            echo 'je hebt geen password ingevuld';
+            echo 'U hebt geen wachtwoord ingevuld';
             return;
         }
 
         if ($_POST['username'] === '' || !filter_var($_POST['username'], FILTER_VALIDATE_EMAIL)) {
-            echo 'De username is foutief ingevuld';
+            echo 'De gebruikersnaam is foutief ingevuld';
             return;
         }
 
         if ($_POST['password'] !== $_POST['password2']) {
-            echo 'DE WACHTWOORDEN KOMEN NIET OVEREEN';
+            echo 'De wachtwoorden komen niet overeen';
             return;
         }
 
