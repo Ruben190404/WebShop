@@ -32,7 +32,7 @@ $productDB = new Product();
                 </div>
             </div>
             <form method="get">
-                <select class="form-select w-25 text-center float-end position-static" name="category" aria-label="Default select example" onchange='if(this.value != 0) { this.form.submit(); }'>
+                <select class="form-select w-25 text-center position-static mt-3" name="category" aria-label="Default select example" onchange='if(this.value != 0) { this.form.submit(); }'>
                     <option value="0">Kies Categorie</option>
                     <option value="indian">Indiaas</option>
                     <option value="japanese">Japans</option>
@@ -53,9 +53,9 @@ $productDB = new Product();
                 <?php
                 $products = $productDB->getAllByCategory($category);
                 foreach ($products as $product) {
-                    $total += ($product['price']);
+                    $total = ($product['price']);
                     ?>
-                    <div class="col-md">
+                    <div class="col col-md-6 col-lg-3">
                         <div class="card bg-dark text-light">
                             <div class="card-body text-center">
                                 <img src="<?= $product['picture'];?>" alt="" class="img-fluid">
