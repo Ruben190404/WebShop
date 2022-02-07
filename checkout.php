@@ -52,6 +52,7 @@ foreach (array_count_values($_SESSION['cart']) as $id => $amount) {
 </style>
 
 <body>
+
 <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
 
 <!-- Specify a custom Tailwind configuration -->
@@ -92,7 +93,7 @@ foreach (array_count_values($_SESSION['cart']) as $id => $amount) {
                                 echo '&euro;&nbsp;' . number_format($total, 2, ',', '.') . ' <br>';
                                 ?></span>
 
-                        </strong> due in 1 week</div>
+                        </strong></div>
                     <form class="space-y-3" action="index.php">
                         <div class="flex shadow-sm rounded">
                             <div class="flex-grow">
@@ -105,7 +106,24 @@ foreach (array_count_values($_SESSION['cart']) as $id => $amount) {
                                 <input name="card-cvc" class="text-sm text-gray-800 bg-white rounded-r leading-5 py-2 px-3 placeholder-gray-400 w-full border border-transparent focus:border-indigo-300 focus:ring-0" type="text" placeholder="CVC" aria-label="CVC" />
                             </div>
                         </div>
-                        <button type="submit" class="font-semibold text-sm inline-flex items-center justify-center px-3 py-2 border border-transparent rounded leading-5 shadow transition duration-150 ease-in-out w-full bg-indigo-500 hover:bg-indigo-600 text-white focus:outline-none focus-visible:ring-2">Pay</button>
+                        <div class="row">
+                            <div class="col-md-6 p-1">
+                                <div class="form-group"> <label for="form_email"></label> <input id="form_email" type="text" name="email" class="form-control rounded" placeholder="Uw volledige naam" required="required" data-error="U moet een email adres invullen."> </div>
+                            </div>
+                            <div class="col-md-6 p-1">
+                                <div class="form-group"> <label for="form_email"></label> <input id="form_email" type="text" name="email" class="form-control rounded" placeholder="Straatnaam + Huisnummer" required="required" data-error="U moet een email adres invullen."> </div>
+                            </div>
+                            <div class="col-md-6 p-1">
+                                <div class="form-group"> <label for="form_email"></label> <input id="form_email" type="text" name="email" class="form-control rounded" placeholder="Postcode" required="required" data-error="U moet een email adres invullen."> </div>
+                            </div>
+                            <div class="col-md-6 p-1">
+                                <div class="form-group"> <label for="form_email"></label> <input id="form_email" type="text" name="email" class="form-control rounded" placeholder="Stad" required="required" data-error="U moet een email adres invullen."> </div>
+                            </div>
+                            <div class="col-md-6 p-1">
+                                <div class="form-group"> <label for="form_email"></label> <input id="form_email" type="text" name="email" class="form-control rounded" placeholder="Land" required="required" data-error="U moet een email adres invullen."> </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="font-semibold text-sm inline-flex items-center justify-center px-3 py-2 border border-transparent rounded leading-5 shadow transition duration-150 ease-in-out w-full bg-indigo-500 hover:bg-indigo-600 text-white focus:outline-none focus-visible:ring-2">Betalen</button>
                     </form>
                 </div>
             </div>
@@ -117,6 +135,8 @@ foreach (array_count_values($_SESSION['cart']) as $id => $amount) {
     let x = Math.floor((Math.random() * 100000) + 1);
     document.getElementById("invoice").innerHTML = x;
 </script>
+
+
 
 </body>
 
