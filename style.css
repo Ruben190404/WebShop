@@ -109,7 +109,7 @@ nav ul li a:hover {
 
 .shopping-cart:after {
     bottom: 100%;
-    right: 55%;
+    right: 55% !important;
     border: solid transparent;
     content: " ";
     height: 0;
