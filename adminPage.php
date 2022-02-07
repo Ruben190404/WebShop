@@ -78,12 +78,12 @@ if (!empty($_POST) && !isset($_POST['productId'])) {
         Prijs: <input type="number" step="0.01" min="0" class="form-control mb-2" name="addPrice" placeholder="Product Prijs...">
         Categorie: <select class="form-select mb-2" name="addCategory" aria-label="Default select example">
             <option value="0">Kies Categorie</option>
-            <option value="Indiase">Indiaas</option>
-            <option value="Japanse">Japans</option>
-            <option value="Chinese">Chinees</option>
-            <option value="Thaise">Thais</option>
-            <option value="Vietnamese">Vietnamees</option>
-            <option value="Benodigheden">Benodigheden</option>
+            <option value="indian">Indiaas</option>
+            <option value="japanse">Japans</option>
+            <option value="chinese">Chinees</option>
+            <option value="thai">Thais</option>
+            <option value="vietnam">Vietnamees</option>
+            <option value="supplies">Benodigheden</option>
         </select>
         <label for="description" class="form-label">Beschrijving:</label>
         Beschrijving: <input type="text" class="form-control mb-2" name="addDescription" placeholder="Product Beschrijving...">
