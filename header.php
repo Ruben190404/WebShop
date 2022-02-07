@@ -104,13 +104,17 @@ if (!isset($_SESSION['adminstatus'])) {
                     foreach ($_SESSION['cart'] as $id => $amount) {
                         $product = $productDB->getProduct($id);
                         if (!empty($product)) {
-                            ?>
+                            {
+                                $total = ($product['price']);
+                                ?>
+
                             <li class="clearfix">
                                 <span class="item-name"><?php echo $product['name']; ?></span>
-                                <span class="item-price"><?php echo $product['price']; ?></span>
+                                <span class="item-price"><?= '&euro;&nbsp;' . number_format($total, 2, ',', '.') . ' <br>'; ?></span>
                                 <span class="item-quantity">Aantal: <?php echo $amount;?></span>
                             </li>
                             <?php
+                        }
                         }
                     }
                     ?>
