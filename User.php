@@ -48,7 +48,7 @@ class User
     {
 
         if (!isset($_POST['username'])) {
-            echo 'U heeft geen gebruikersnaam ingevuld';
+            echo 'Geen gebruikersnaam ingevuld';
             return;
         }
 
@@ -58,7 +58,7 @@ class User
         }
 
         if ($_POST['username'] === '' || !filter_var($_POST['username'], FILTER_VALIDATE_EMAIL)) {
-            echo 'De gebruikersnaam is foutief ingevuld';
+            echo 'De gebruikersnaam is verkeerd ingevuld';
             return;
         }
 
